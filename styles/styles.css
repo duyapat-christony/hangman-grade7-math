@@ -80,6 +80,34 @@ p {
     text-align: center;
 }
 
+#playButton {
+	width: 60%;
+    background-color: #4CAF50; /* Green background */
+    color: white;              /* White text */
+    padding: 15px 32px;         /* Padding for the button */
+    text-align: center;         /* Center the text */
+    text-decoration: none;      /* Remove underline */
+    display: inline-block;      /* Inline-block display */
+    font-size: 1.9rem;            /* Increase the font size */
+    margin: 20px auto;          /* Add some margin around the button */
+    cursor: pointer;            /* Pointer cursor on hover */
+    border-radius: 50px;        /* Rounded corners */
+    border: none;               /* Remove the border */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transition */
+}
+
+#playButton:hover {
+    background-color: #45a049;  /* Darker green on hover */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* Increase shadow on hover */
+}
+
+#playButton:active {
+    background-color: #3e8e41;  /* Even darker green on click */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Lower shadow on click */
+}
+
+
 .letter {
 	display: flex;
 	align-items: center;

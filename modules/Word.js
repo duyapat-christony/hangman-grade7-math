@@ -33,7 +33,7 @@ export class Word {
     }
     showCategory() {
         const span = document.querySelector('#category span');
-        span.textContent = this.category.toUpperCase();
+        span.innerHTML = `<strong>Category:</strong> ${this.category.toUpperCase()}`;
     }
 
     getWord() {

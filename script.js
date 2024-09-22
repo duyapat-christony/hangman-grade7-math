@@ -1,7 +1,7 @@
-import {Keyboard} from "./modules/Keyboard.js";
-import {Hangman} from "./modules/Hangman.js";
-import {Word} from "./modules/Word.js";
-import {ResultBoard} from "./modules/ResultBoard.js";
+import { Keyboard } from "./modules/Keyboard.js";
+import { Hangman } from "./modules/Hangman.js";
+import { Word } from "./modules/Word.js";
+import { ResultBoard } from "./modules/ResultBoard.js";
 
 class Game {
     constructor() {
@@ -17,36 +17,36 @@ class Game {
         this.correctSound = new Audio('sounds/correct.mp3');        // Path to correct word sound
         this.wrongSound = new Audio('sounds/wrong.mp3');            // Path to wrong word sound
 
-        // Load sounds
-        this.loadSounds().then(() => {
-            this.startGameSetup(); // Start the game setup after sounds are loaded
-        });
+        // Create a "PLAY" button
+        this.createPlayButton();
     }
 
-    loadSounds() {
-        return Promise.all([
-            this.loadSound(this.backgroundMusic),
-            this.loadSound(this.correctSound),
-            this.loadSound(this.wrongSound)
-        ]);
-    }
+    createPlayButton() {
+        // Create the button element
+        const playButton = document.createElement('button');
+        playButton.textContent = "PLAY";
+        playButton.id = "playButton";
+        document.body.insertBefore(playButton, this.wordDiv);
 
-    loadSound(sound) {
-        return new Promise((resolve) => {
-            sound.addEventListener('canplaythrough', () => {
-                resolve();
-            });
-            sound.load(); // Ensure the sound is loaded
+        // When the button is clicked, start the game
+        playButton.addEventListener('click', () => {
+            playButton.remove(); // Remove the button after clicking
+            this.startGameSetup(); // Start the game setup
         });
     }
 
     startGameSetup() {
+        // Start the background music
         this.backgroundMusic.loop = true;   // Loop the background music
         this.backgroundMusic.volume = 0.5;  // Adjust volume as needed
-        this.backgroundMusic.play();        // Start playing background music
+        this.backgroundMusic.play().catch(err => {
+            console.log('Background music failed to play:', err);
+        });
 
+        // Update the score display
         this.updateScore();
 
+        // Set up keyboard, word, hangman, and event listeners
         this.keyboard = new Keyboard();
         this.keyboard.createKeyboard(this.keyboardDiv);
 
@@ -57,6 +57,7 @@ class Game {
 
         this.hangman = new Hangman();
 
+        // Set up event listeners for keyboard and word interactions
         this.keyboardDiv.addEventListener('click', this.startGame.bind(this));
         document.addEventListener('keydown', this.startGame.bind(this));
 
@@ -65,24 +66,23 @@ class Game {
     }
 
     startGame(e) {
-        if (e.keyCode < 65 || e.keyCode > 90 || e.target.classList.contains('clicked') || !e.target.classList.contains('letter') && e.keyCode === undefined) return;
-    
+        if (e.keyCode < 65 || e.keyCode > 90 || e.target.classList.contains('clicked') || (!e.target.classList.contains('letter') && e.keyCode === undefined)) return;
+
         const word = this.word.getWord();
         const result = this.checkWin(word);
 
-    
         if (this.hangman.mistakes >= this.hangman.maxMistakes || result) return;
-    
+
         this.keyboard.getKey(e);
         const letter = this.keyboard.returnKey();
-    
+
         if (this.keyboard.checkIfClicked(letter)) return;
-    
+
         this.getResult(letter, word);
-    
+
         if (this.checkWin(word)) {
             const win = ResultBoard.checkResult(this);
-    
+
             if (win) {
                 this.correctSound.play();
                 this.incrementScore(); // Increment score after winning a round
@@ -95,7 +95,6 @@ class Game {
             }
         }
     }
-    
 
     getResult(letter, word) {
         if (word.includes(letter)) {
@@ -135,14 +134,14 @@ class Game {
         this.word.drawWord();
         this.word.showEmptyFields(this.wordDiv);
         this.word.showCategory();
-    
+
         // Reset keyboard
         const keys = document.querySelectorAll('#keyboard span');
         keys.forEach(key => key.classList.remove('clicked'));  // Remove the 'clicked' class from all letters
-    
+
         // Clear the list of clicked letters in the keyboard
         this.keyboard.keysClicked = [];
-    
+
         // Reset hangman mistakes
         this.hangman.mistakes = 0;
         this.hangman.setHangman(this.hangman.mistakes);
