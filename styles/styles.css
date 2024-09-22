@@ -7,7 +7,7 @@
 body {
 	font-size: 10px;
 	font-family: Tahoma, Helvetica, sans-serif;
-	height: 100vh;
+	height: 768px;
 	width: 100%;
 	display: flex;
 	flex-wrap: wrap;
@@ -68,7 +68,7 @@ p {
 
 #scoreDiv {
 	width: 100%;
-	margin-top: 2%;
+	margin-top: 0;
     font-size: 1.3rem;
     text-align: center;
 }
