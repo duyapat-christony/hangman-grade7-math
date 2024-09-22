@@ -38,7 +38,7 @@ class Game {
     startGameSetup() {
         // Start the background music
         this.backgroundMusic.loop = true;   // Loop the background music
-        this.backgroundMusic.volume = 0.5;  // Adjust volume as needed
+        this.backgroundMusic.volume = 1;  // Adjust volume as needed
         this.backgroundMusic.play().catch(err => {
             console.log('Background music failed to play:', err);
         });
