@@ -1,7 +1,7 @@
 export class Hangman {
     constructor() {
         this.mistakes = 0;
-        const _hangmanImgs = ['img/hangman0.png', 'img/hangman1.png', 'img/hangman2.png', 'img/hangman3.png', 'img/hangman4.png', 'img/hangman5.png', 'img/hangman6.png', 'img/hangman7.png', 'img/hangman8.png', 'img/hangman9.png', 'img/hangman10.png']
+        const _hangmanImgs = ['img/hangman0.webp', 'img/hangman1.webp', 'img/hangman2.webp', 'img/hangman3.webp', 'img/hangman4.webp', 'img/hangman5.webp', 'img/hangman6.webp', 'img/hangman7.webp', 'img/hangman8.webp', 'img/hangman9.webp', 'img/hangman10.webp']
         this.maxMistakes = _hangmanImgs.length - 1;
 
         this.setHangman = (mistakes) => {
