@@ -1,1 +1,1 @@
-# hangman-grade7-math
+Hangman - Grade 7 Math Edition

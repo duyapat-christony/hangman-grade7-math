@@ -17,7 +17,30 @@ class Game {
         this.correctSound = new Audio('sounds/correct.mp3');        // Path to correct word sound
         this.wrongSound = new Audio('sounds/wrong.mp3');            // Path to wrong word sound
 
-        // Set background music to loop and play it
+        // Load sounds
+        this.loadSounds().then(() => {
+            this.startGameSetup(); // Start the game setup after sounds are loaded
+        });
+    }
+
+    loadSounds() {
+        return Promise.all([
+            this.loadSound(this.backgroundMusic),
+            this.loadSound(this.correctSound),
+            this.loadSound(this.wrongSound)
+        ]);
+    }
+
+    loadSound(sound) {
+        return new Promise((resolve) => {
+            sound.addEventListener('canplaythrough', () => {
+                resolve();
+            });
+            sound.load(); // Ensure the sound is loaded
+        });
+    }
+
+    startGameSetup() {
         this.backgroundMusic.loop = true;   // Loop the background music
         this.backgroundMusic.volume = 0.5;  // Adjust volume as needed
         this.backgroundMusic.play();        // Start playing background music
