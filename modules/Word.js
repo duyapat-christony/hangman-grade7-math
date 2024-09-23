@@ -1,19 +1,25 @@
 export class Word {
     constructor() {
         
-        this.polygon = ['types of polygon', 'triangle', 'quadrilateral', 'pentagon', 'hexagon', 'heptagon', 'octagon', 'nonagon', 'decagon', 'regular', 'irregular', 'convex', 'nonconvex', 'equilateral', 'equiangular'];
-        this.arithmetic = ['arithmetic operations', 'addition', 'subtraction', 'multiplication', 'division'];
-        this.set = ['set operations', 'union', 'intersection', 'complement', 'difference'];
-        this.real = ['set of real numbers', 'counting', 'natural', 'whole', 'integer', 'rational', 'irrational', 'real'];
-        this.angle = ['angles', 'acute', 'right', 'obtuse', 'straight', 'reflex', 'complementary', 'supplementary', 'vertical']
-        this.unit1 = ['metric units of measurement', 'meter', 'liter', 'gram']
-        this.unit2 = ['english units of measurement', 'pound', 'mile', 'inch', 'yard']
-        this.solid = ['solid figures', 'cube', 'pyramid', 'cylinder', 'cone', 'sphere']
-        this.graph = ['types of graph', 'pie', 'bar', 'line', 'pictograph']
-        this.algebra = ['algebra terms', 'variable', 'coefficient', 'constant', 'equation', 'expression', 'inequality']
-        this.geometry = ['geometry terms', 'point', 'line', 'segment', 'plane', 'polygon', 'ray', 'angle', 'perpendicular', 'parallel', 'area', 'perimeter', 'volume']
+        this.categoryData = {
+            polygon1: ['types of polygon', 'triangle', 'quadrilateral', 'pentagon', 'hexagon', 'heptagon', 'octagon', 'nonagon', 'decagon', 'regular'],
+            polygon2: ['classification of polygons', 'irregular', 'convex', 'nonconvex', 'equilateral', 'equiangular'],
+            arithmetic: ['arithmetic operations', 'addition', 'subtraction', 'multiplication', 'division'],
+            set: ['set operations', 'union', 'intersection', 'complement', 'difference'],
+            real: ['set of real numbers', 'counting', 'natural', 'whole', 'integer', 'rational', 'irrational', 'real'],
+            angle1: ['types of angles', 'acute', 'right', 'obtuse', 'straight', 'reflex'],
+            angle2: ['angle pairs', 'complementary', 'supplementary', 'vertical', 'linear'],
+            unit1: ['metric units of measurement', 'meter', 'liter', 'gram'],
+            unit2: ['english units of measurement', 'pound', 'mile', 'inch', 'yard'],
+            solid: ['solid figures', 'cube', 'pyramid', 'cylinder', 'cone', 'sphere'],
+            graph: ['types of graph', 'pie', 'bar', 'line', 'pictograph'],
+            algebra: ['algebra terms', 'variable', 'coefficient', 'constant', 'equation', 'expression', 'inequality'],
+            geometry: ['geometry terms', 'point', 'line', 'segment', 'plane', 'polygon', 'ray', 'angle', 'perpendicular', 'parallel', 'area', 'perimeter', 'volume']
+        };
+        
+        // Fetch categories dynamically
+        this.categories = Object.values(this.categoryData);
 
-        this.categories = [this.polygon, this.arithmetic, this.set, this.real, this.angle, this.unit1, this.unit2, this.solid, this.graph, this.algebra, this.geometry];
         this.category;
         this.chosenWord;
 
@@ -34,7 +40,7 @@ export class Word {
     }
     showCategory() {
         const span = document.querySelector('#category span');
-        span.innerHTML = `<strong>Category:</strong> ${this.category.toUpperCase()}`;
+        span.innerHTML = `<strong>Hint:</strong> ${this.category}`;
     }
 
     getWord() {
