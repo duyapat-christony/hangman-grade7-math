@@ -2,17 +2,17 @@ export class Word {
     constructor() {
         
         this.categoryData = {
-            polygon1: ['types of polygon', 'triangle', 'quadrilateral', 'pentagon', 'hexagon', 'heptagon', 'octagon', 'nonagon', 'decagon'],
+            polygon1: ['type of polygon', 'triangle', 'quadrilateral', 'pentagon', 'hexagon', 'heptagon', 'octagon', 'nonagon', 'decagon'],
             polygon2: ['classification of polygons', 'regular', 'irregular', 'convex', 'nonconvex', 'equilateral', 'equiangular'],
-            arithmetic: ['arithmetic operations', 'addition', 'subtraction', 'multiplication', 'division'],
-            set: ['set operations', 'union', 'intersection', 'complement', 'difference'],
-            real: ['set of real numbers', 'counting', 'natural', 'whole', 'integer', 'rational', 'irrational', 'real'],
-            angle1: ['types of angles', 'acute', 'right', 'obtuse', 'straight', 'reflex'],
+            arithmetic: ['arithmetic operation', 'addition', 'subtraction', 'multiplication', 'division'],
+            set: ['set operation', 'union', 'intersection', 'complement', 'difference'],
+            real: ['set of real number', 'counting', 'natural', 'whole', 'integer', 'rational', 'irrational', 'real'],
+            angle1: ['type of angles', 'acute', 'right', 'obtuse', 'straight', 'reflex'],
             angle2: ['angle pairs', 'complementary', 'supplementary', 'vertical', 'linear'],
-            unit1: ['metric units of measurement', 'meter', 'liter', 'gram'],
-            unit2: ['english units of measurement', 'pound', 'mile', 'inch', 'yard'],
-            solid: ['solid figures', 'cube', 'pyramid', 'cylinder', 'cone', 'sphere'],
-            graph: ['types of graph', 'pie', 'bar', 'line', 'pictograph'],
+            unit1: ['metric unit of measurement', 'meter', 'liter', 'gram'],
+            unit2: ['english unit of measurement', 'pound', 'mile', 'inch', 'yard'],
+            solid: ['solid figure', 'cube', 'pyramid', 'cylinder', 'cone', 'sphere'],
+            graph: ['type of graph', 'pie', 'bar', 'line', 'pictograph'],
             algebra: ['algebra terms', 'variable', 'coefficient', 'constant', 'equation', 'expression', 'inequality'],
             geometry: ['geometry terms', 'point', 'line', 'segment', 'plane', 'polygon', 'ray', 'angle', 'perpendicular', 'parallel', 'area', 'perimeter', 'volume']
         };
