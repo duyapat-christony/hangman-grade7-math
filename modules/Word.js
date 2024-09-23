@@ -6,13 +6,14 @@ export class Word {
         this.set = ['set operations', 'union', 'intersection', 'complement', 'difference'];
         this.real = ['set of real numbers', 'counting', 'natural', 'whole', 'integer', 'rational', 'irrational', 'real'];
         this.angle = ['angles', 'acute', 'right', 'obtuse', 'straight', 'reflex', 'complementary', 'supplementary', 'vertical']
-        this.unit = ['units of measurement', 'meter', 'liter', 'gram', 'pound', 'inch', 'yard']
+        this.unit1 = ['metric units of measurement', 'meter', 'liter', 'gram']
+        this.unit2 = ['english units of measurement', 'pound', 'mile', 'inch', 'yard']
         this.solid = ['solid figures', 'cube', 'pyramid', 'cylinder', 'cone', 'sphere']
         this.graph = ['types of graph', 'pie', 'bar', 'line', 'pictograph']
         this.algebra = ['algebra terms', 'variable', 'coefficient', 'constant', 'equation', 'expression', 'inequality']
         this.geometry = ['geometry terms', 'point', 'line', 'segment', 'plane', 'polygon', 'ray', 'angle', 'perpendicular', 'parallel', 'area', 'perimeter', 'volume']
 
-        this.categories = [this.polygon, this.arithmetic, this.set, this.real, this.angle, this.unit, this.solid, this.graph, this.algebra, this.geometry];
+        this.categories = [this.polygon, this.arithmetic, this.set, this.real, this.angle, this.unit1, this.unit2, this.solid, this.graph, this.algebra, this.geometry];
         this.category;
         this.chosenWord;
 

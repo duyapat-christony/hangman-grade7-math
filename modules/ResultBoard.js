@@ -9,7 +9,7 @@ export class ResultBoard {
         scoreText.id = 'scoreText';
 
         // Display the current score
-        scoreText.textContent = `Your score: ${score}`;
+        scoreText.textContent = `Score: ${score}`;
         board.appendChild(scoreText);
 
         const wait = () => {
@@ -17,7 +17,7 @@ export class ResultBoard {
         };
 
         if (win) {
-            text.textContent = "Congratulations! You got it right!";
+            text.textContent = "Congrats! You got it right ✅!";
             button.textContent = "Next Word";
             button.addEventListener('click', () => {
                 board.classList.remove('active');
@@ -36,7 +36,7 @@ export class ResultBoard {
                     span.style.color = "red";
                 }
             }
-            text.textContent = "Sorry, you lost :(";
+            text.textContent = "Sorry, you lose 🙁!";
             button.textContent = "Try Again";
             button.addEventListener('click', () => {
                 board.classList.remove('active');
@@ -54,11 +54,11 @@ export class ResultBoard {
         const scoreText = document.createElement('p');
         scoreText.id = 'scoreText';
 
-        scoreText.textContent = `Your score: ${score}`;
+        scoreText.textContent = `Score: ${score}`;
         board.appendChild(scoreText);
 
-        text.textContent = "Game Over! Your time is up!";
-        button.textContent = "Try Again";
+        text.textContent = "Sorry, time is up ⏰!";
+        button.textContent = "New Game";
         button.addEventListener('click', () => {
             board.classList.remove('active');
             location.reload();  

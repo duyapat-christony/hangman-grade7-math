@@ -170,7 +170,11 @@ class Game {
 
     endGame(win = false) {
         this.backgroundMusic.pause(); // Stop background music
-        ResultBoard.showGameOver(this.score); // Show the game over message with score
+        if (this.hangman.mistakes === this.hangman.maxMistakes) {
+            ResultBoard.addBoard(win, '', this.score); // Show the results if the player won
+        } else {
+            ResultBoard.showGameOver(this.score); // Show the game over message with score
+        }
     }
 }
 
