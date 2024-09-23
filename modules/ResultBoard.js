@@ -47,6 +47,26 @@ export class ResultBoard {
         }
     }
 
+    static showGameOver(score) {
+        const board = document.querySelector('#resultBoard');
+        const text = document.querySelector('#resultBoard h2');
+        const button = document.createElement('button');
+        const scoreText = document.createElement('p');
+        scoreText.id = 'scoreText';
+
+        scoreText.textContent = `Your score: ${score}`;
+        board.appendChild(scoreText);
+
+        text.textContent = "Game Over! Your time is up!";
+        button.textContent = "Try Again";
+        button.addEventListener('click', () => {
+            board.classList.remove('active');
+            location.reload();  
+        });
+        board.appendChild(button);
+        board.classList.add('active');
+    }
+
     static checkResult(thisGame) {
         return thisGame.hangman.mistakes < thisGame.hangman.maxMistakes;
     }

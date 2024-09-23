@@ -58,12 +58,32 @@ class Game {
         this.hangman = new Hangman();
         this.hangman.setHangman(0);
 
+        // Start the timer
+        this.startTimer(300); // 60 seconds timer
+
         // Set up event listeners for keyboard and word interactions
         this.keyboardDiv.addEventListener('click', this.startGame.bind(this));
         document.addEventListener('keydown', this.startGame.bind(this));
 
         // Listen for "Next Word" event to reset word and continue game
         document.addEventListener('nextWord', this.resetWord.bind(this));
+    }
+
+    startTimer(duration) {
+        let timer = duration, minutes, seconds;
+        const interval = setInterval(() => {
+            minutes = parseInt(timer / 60, 10);
+            seconds = parseInt(timer % 60, 10);
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            // Display the timer on the scoreDiv
+            this.scoreDiv.textContent = `Score: ${this.score} | Time Left: ${minutes}:${seconds}`;
+
+            if (--timer < 0) {
+                clearInterval(interval);
+                this.endGame(false); // End the game with a loss
+            }
+        }, 1000);
     }
 
     startGame(e) {
@@ -146,6 +166,11 @@ class Game {
         // Reset hangman mistakes
         this.hangman.mistakes = 0;
         this.hangman.setHangman(this.hangman.mistakes);
+    }
+
+    endGame(win = false) {
+        this.backgroundMusic.pause(); // Stop background music
+        ResultBoard.showGameOver(this.score); // Show the game over message with score
     }
 }
 
