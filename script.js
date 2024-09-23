@@ -26,7 +26,7 @@ class Game {
         const playButton = document.createElement('button');
         playButton.textContent = "PLAY";
         playButton.id = "playButton";
-        document.body.insertBefore(playButton, this.wordDiv);
+        document.body.insertBefore(playButton, this.keyboardDiv);
 
         // When the button is clicked, start the game
         playButton.addEventListener('click', () => {
@@ -56,6 +56,7 @@ class Game {
         this.word.showCategory();
 
         this.hangman = new Hangman();
+        this.hangman.setHangman(0);
 
         // Set up event listeners for keyboard and word interactions
         this.keyboardDiv.addEventListener('click', this.startGame.bind(this));

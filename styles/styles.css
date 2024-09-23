@@ -7,7 +7,7 @@
 body {
 	font-size: 10px;
 	font-family: Tahoma, Helvetica, sans-serif;
-	height: 768px;
+	height: 400px;
 	width: 100%;
 	display: flex;
 	flex-wrap: wrap;
@@ -21,15 +21,6 @@ h1 {
 	text-align: center;
 	font-size: 1.9rem;
 	letter-spacing: 8px;
-}
-
-p {
-	width: 100%;
-	margin: 0;
-	padding: 0;
-	text-align: center;
-	font-size: 1.5rem;
-	letter-spacing: 4px;
 }
 
 #hangman {
@@ -47,7 +38,6 @@ p {
 	justify-content: space-around;
 	align-items: center;
 	padding: 5% 10%;
-	width: 100%;
 	font-size: 2rem;
 }
 
@@ -66,54 +56,12 @@ p {
 	margin: 5% 2%;
 }
 
-#scoreDiv {
-	width: 100%;
-	margin-top: 0;
-    font-size: 1.3rem;
-    text-align: center;
-}
-
-#scoreText {
-	width: 100%;
-	margin-top: 5%;
-    font-size: 1.3rem;
-    text-align: center;
-}
-
-#playButton {
-	width: 60%;
-    background-color: #4CAF50; /* Green background */
-    color: white;              /* White text */
-    padding: 15px 32px;         /* Padding for the button */
-    text-align: center;         /* Center the text */
-    text-decoration: none;      /* Remove underline */
-    display: inline-block;      /* Inline-block display */
-    font-size: 1.9rem;            /* Increase the font size */
-    margin: 20px auto;          /* Add some margin around the button */
-    cursor: pointer;            /* Pointer cursor on hover */
-    border-radius: 50px;        /* Rounded corners */
-    border: none;               /* Remove the border */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Shadow for depth */
-    transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transition */
-}
-
-#playButton:hover {
-    background-color: #45a049;  /* Darker green on hover */
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* Increase shadow on hover */
-}
-
-#playButton:active {
-    background-color: #3e8e41;  /* Even darker green on click */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Lower shadow on click */
-}
-
-
 .letter {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	text-align: center;
-	width: 15%;
+	width: 5%;
 	line-height: 150%;
 	font-size: 1.2rem;
 	margin: 5px;
@@ -145,7 +93,7 @@ p {
 	left: 50%;
 	transform: translateX(-50%);
 	width: 90%;
-	height: 50%;
+	height: 15rem;
 	background-color: rgb(187, 187, 187);
 	box-shadow: 0 0 5px 3px black, 0 0 0 6px white, 0 0 5px 9px black;
 	transition: .8s cubic-bezier(0.11, 0.01, 0.57, 2.08);
@@ -159,24 +107,39 @@ p {
 
 #resultBoard h2 {
 	position: absolute;
-	top: 50%;
+	top: 20%;
 	left: 50%;
-	transform: translate(-50%, -150%);
+	transform: translate(-50%, 50%);
+	padding: 5px;
+    font-size: 1.6rem;
 	width: 100%;
-	font-size: 1.5rem;
 	text-align: center;
-	color: black;
 }
 
 #resultBoard button {
+	background-color: #4CAF50;
+	width: 50%;
+	color: white;
 	position: absolute;
-	top: 50%;
+	top: 55%;
 	left: 50%;
 	transform: translate(-50%, 50%);
-	font-size: 1rem;
+	font-size: 1.5rem;
 	padding: 5px;
-	font-family: Tahoma, Helvetica, sans-serif;
+	border-radius: 50px;        /* Rounded corners */
+    border: none;               /* Remove the border */
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transition */
+}
 
+#resultBoard button:hover {
+    background-color: #45a049;  /* Darker green on hover */
+	box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* Increase shadow on hover */
+}
+
+#resultBoard button:active {
+    background-color: #3e8e41;  /* Even darker green on click */
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Lower shadow on click */
 }
 
 a {
@@ -205,12 +168,12 @@ a {
 	}
 
 	#keyboard {
-		width: 80%;
+		width: 90%;
 		margin: 5% auto;
 	}
 
 	.letter {
-		width: 8%;
+		width: 5%;
 		line-height: 200%;
 		margin: 5px;
 	}
@@ -221,7 +184,7 @@ a {
 @media (min-width: 375px) {
 	h1 {
 		font-size: 2.2rem;
-		padding: 8%;
+		padding: 0;
 	}
 
 	#hangman img {
@@ -235,37 +198,55 @@ a {
 	}
 
 	.letter {
-		width: 13%;
+		width: 5%;
 		line-height: 180%;
 		font-size: 1.2rem;
 		margin: 5px;
 	}
 
+	#scoreText {
+		font-size: 1rem;
+	}
 
+	#resultBoard h2 {
+		font-size: 1.6rem;
+	}
+
+
+}
+
+@media (min-width: 460px) {
+	#resultBoard h2 {
+		font-size: 1.6rem;
+	}
+}
+
+@media (min-width: 476px) {
+	#resultBoard h2 {
+		font-size: 1.8rem;
+	}
 }
 
 @media (min-width: 768px) {
 	h1 {
 		text-align: center;
 		font-size: 2.3rem;
-		padding: 4%;
+		padding: 0;
 	}
 
 	#word {
 		padding: 5% 30%;
-		width: 100%;
-		font-size: 2.5rem;
+		font-size: 2rem;
 	}
 
 	#category {
 		width: 100%;
-		margin: 5% auto;
 		font-size: 1.8rem;
 		letter-spacing: 5px;
 	}
 
 	.letter {
-		width: 12%;
+		width: 6%;
 		line-height: 200%;
 		font-size: 1.8rem;
 	}
@@ -314,15 +295,67 @@ a {
 
 	#resultBoard {
 		width: 70%;
-		height: 50%;
 	}
 
 }
 
 @media (min-width: 1400px) {
 	.letter {
-		width: 6%;
+		width: 10%;
 		line-height: 150%;
 		font-size: 1.8rem;
 	}
+}
+
+/* My Customizations */
+p {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	font-size: 1.5rem;
+	letter-spacing: 4px;
+}
+
+#scoreDiv {
+	width: 100%;
+	margin-top: 0;
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+#scoreText {
+	position: absolute;
+	top: 7%;
+	left: 50%;
+	transform: translate(-50%, 50%);
+	padding: 5px;
+    font-size: 1.5rem;
+}
+
+#playButton {
+	width: 60%;
+    background-color: #4CAF50; /* Green background */
+    color: white;              /* White text */
+    padding: 15px 32px;         /* Padding for the button */
+    text-align: center;         /* Center the text */
+    text-decoration: none;      /* Remove underline */
+    display: inline-block;      /* Inline-block display */
+    font-size: 1.9rem;            /* Increase the font size */
+    margin: 20px auto;          /* Add some margin around the button */
+    cursor: pointer;            /* Pointer cursor on hover */
+    border-radius: 50px;        /* Rounded corners */
+    border: none;               /* Remove the border */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transition */
+}
+
+#playButton:hover {
+    background-color: #45a049;  /* Darker green on hover */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* Increase shadow on hover */
+}
+
+#playButton:active {
+    background-color: #3e8e41;  /* Even darker green on click */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Lower shadow on click */
 }
