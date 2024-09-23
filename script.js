@@ -13,13 +13,9 @@ class Game {
         this.score = 0;  // Initialize score
 
         // Add audio files
-        // this.backgroundMusic = new Audio('sounds/background.mp3');  // Path to background music
+        this.backgroundMusic = new Audio('sounds/background.mp3');  // Path to background music
         this.correctSound = new Audio('sounds/correct.mp3');        // Path to correct word sound
         this.wrongSound = new Audio('sounds/wrong.mp3');            // Path to wrong word sound
-
-        this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
-        this.source = null; // Initialize source as null
-        this.gainNode = this.audioContext.createGain(); // Create gain node for volume control
 
         // Create a "PLAY" button
         this.createPlayButton();
@@ -40,26 +36,25 @@ class Game {
     }
 
     startGameSetup() {
-        const request = new XMLHttpRequest();
-        request.open('GET', 'sounds/background.mp3', true);
-        request.responseType = 'arraybuffer';
+        // Start the background music
+        this.backgroundMusic.volume = 1; // Adjust volume as needed
+        this.backgroundMusic.preload = 'auto'; // Preload the audio
 
-        request.onload = () => {
-            this.audioContext.decodeAudioData(request.response, (buffer) => {
-                this.source = this.audioContext.createBufferSource(); // Create a buffer source
-                this.source.buffer = buffer;
-                this.source.loop = true; // Enable looping
-
-                // Connect source -> gain -> destination
-                this.source.connect(this.gainNode);
-                this.gainNode.connect(this.audioContext.destination);
-
-                this.gainNode.gain.value = 1; // Set volume
-                this.source.start(0); // Start playback
+        // Function to play music
+        const playMusic = () => {
+            this.backgroundMusic.play().catch(err => {
+                console.log('Background music failed to play:', err);
             });
         };
 
-        request.send();
+        // Start playing music
+        playMusic();
+
+        // Event listener to loop the music manually
+        this.backgroundMusic.addEventListener('ended', () => {
+            this.backgroundMusic.currentTime = 0; // Reset to the beginning
+            playMusic();
+        });
 
         // Update the score display
         this.updateScore();
@@ -187,10 +182,7 @@ class Game {
     }
 
     endGame(win = false) {
-        if (this.source) {
-            this.source.stop();  // Stop the buffer source node
-            this.source = null;  // Reset the source for future playback
-        }
+        this.backgroundMusic.pause(); // Stop background music
         if (this.hangman.mistakes === this.hangman.maxMistakes) {
             ResultBoard.addBoard(win, '', this.score); // Show the results if the player won
         } else {
