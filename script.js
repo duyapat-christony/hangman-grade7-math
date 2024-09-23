@@ -37,10 +37,26 @@ class Game {
 
     startGameSetup() {
         // Start the background music
-        this.backgroundMusic.loop = true;   // Loop the background music
-        this.backgroundMusic.volume = 1;  // Adjust volume as needed
-        this.backgroundMusic.play().catch(err => {
-            console.log('Background music failed to play:', err);
+        this.backgroundMusic.volume = 1; // Adjust volume as needed
+        this.backgroundMusic.preload = 'auto'; // Preload the audio
+
+        // Function to play music
+        const playMusic = () => {
+            this.backgroundMusic.play().catch(err => {
+                console.log('Background music failed to play:', err);
+            });
+        };
+
+        // Start playing music
+        playMusic();
+
+        // Event listener to loop the music manually
+        this.backgroundMusic.addEventListener('ended', () => {
+            this.backgroundMusic.currentTime = 0; // Reset to the beginning
+            // Use setTimeout to create a seamless transition
+            setTimeout(() => {
+                playMusic(); // Play again
+            }, 200); // Adjust the timeout as needed (50 ms is a good starting point)
         });
 
         // Update the score display
