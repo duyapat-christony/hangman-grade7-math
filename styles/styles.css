@@ -11,7 +11,6 @@ body {
 	width: 100%;
 	display: flex;
 	flex-wrap: wrap;
-
 }
 
 h1 {
@@ -334,7 +333,7 @@ p {
 }
 
 #playButton {
-	width: 60%;
+	width: 200px;
     background-color: #4CAF50; /* Green background */
     color: white;              /* White text */
     padding: 15px 32px;         /* Padding for the button */
@@ -348,6 +347,12 @@ p {
     border: none;               /* Remove the border */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Shadow for depth */
     transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transition */
+
+	/* Centering using absolute positioning */
+    position: absolute;
+    top: 50%;                   /* Center vertically */
+    left: 50%;                  /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust position to truly center */
 }
 
 #playButton:hover {
