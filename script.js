@@ -36,28 +36,22 @@ class Game {
     }
 
     startGameSetup() {
-        // Start the background music
-        this.backgroundMusic.volume = 1; // Adjust volume as needed
-        this.backgroundMusic.preload = 'auto'; // Preload the audio
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        const source = audioContext.createBufferSource();
+        const request = new XMLHttpRequest();
+        request.open('GET', 'sounds/background.mp3', true);
+        request.responseType = 'arraybuffer';
 
-        // Function to play music
-        const playMusic = () => {
-            this.backgroundMusic.play().catch(err => {
-                console.log('Background music failed to play:', err);
+        request.onload = () => {
+            audioContext.decodeAudioData(request.response, (buffer) => {
+                source.buffer = buffer;
+                source.connect(audioContext.destination);
+                source.loop = true; // Enable native seamless looping
+                source.start(0); // Start immediately
             });
         };
 
-        // Start playing music
-        playMusic();
-
-        // Event listener to loop the music manually
-        this.backgroundMusic.addEventListener('ended', () => {
-            this.backgroundMusic.currentTime = 0; // Reset to the beginning
-            // Use setTimeout to create a seamless transition
-            setTimeout(() => {
-                playMusic(); // Play again
-            }, 200); // Adjust the timeout as needed (50 ms is a good starting point)
-        });
+        request.send();    
 
         // Update the score display
         this.updateScore();
