@@ -2,8 +2,8 @@ export class Word {
     constructor() {
         
         this.categoryData = {
-            polygon1: ['types of polygon', 'triangle', 'quadrilateral', 'pentagon', 'hexagon', 'heptagon', 'octagon', 'nonagon', 'decagon', 'regular'],
-            polygon2: ['classification of polygons', 'irregular', 'convex', 'nonconvex', 'equilateral', 'equiangular'],
+            polygon1: ['types of polygon', 'triangle', 'quadrilateral', 'pentagon', 'hexagon', 'heptagon', 'octagon', 'nonagon', 'decagon'],
+            polygon2: ['classification of polygons', 'regular', 'irregular', 'convex', 'nonconvex', 'equilateral', 'equiangular'],
             arithmetic: ['arithmetic operations', 'addition', 'subtraction', 'multiplication', 'division'],
             set: ['set operations', 'union', 'intersection', 'complement', 'difference'],
             real: ['set of real numbers', 'counting', 'natural', 'whole', 'integer', 'rational', 'irrational', 'real'],
