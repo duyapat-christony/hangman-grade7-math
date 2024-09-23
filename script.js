@@ -39,22 +39,17 @@ class Game {
         // Start the background music
         this.backgroundMusic.volume = 1; // Adjust volume as needed
         this.backgroundMusic.preload = 'auto'; // Preload the audio
-
+        this.backgroundMusic.loop = true; // Set the loop property
+    
         // Function to play music
         const playMusic = () => {
             this.backgroundMusic.play().catch(err => {
                 console.log('Background music failed to play:', err);
             });
         };
-
+    
         // Start playing music
         playMusic();
-
-        // Event listener to loop the music manually
-        this.backgroundMusic.addEventListener('ended', () => {
-            this.backgroundMusic.currentTime = 0; // Reset to the beginning
-            playMusic();
-        });
 
         // Update the score display
         this.updateScore();
