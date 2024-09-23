@@ -60,7 +60,7 @@ h1 {
 	align-items: center;
 	justify-content: center;
 	text-align: center;
-	width: 5%;
+	width: 15%;
 	line-height: 150%;
 	font-size: 1.2rem;
 	margin: 5px;
@@ -197,7 +197,7 @@ a {
 	}
 
 	.letter {
-		width: 5%;
+		width: 10%;
 		line-height: 180%;
 		font-size: 1.2rem;
 		margin: 5px;
