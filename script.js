@@ -78,6 +78,7 @@ class Game {
     }
 
     startTimer(duration) {
+        
         let timer = duration, minutes, seconds;
         const interval = setInterval(() => {
             minutes = parseInt(timer / 60, 10);
@@ -96,34 +97,33 @@ class Game {
 
     startGame(e) {
         if (e.keyCode < 65 || e.keyCode > 90 || e.target.classList.contains('clicked') || (!e.target.classList.contains('letter') && e.keyCode === undefined)) return;
-
+    
         const word = this.word.getWord();
         const result = this.checkWin(word);
-
+    
         if (this.hangman.mistakes >= this.hangman.maxMistakes || result) return;
-
+    
         this.keyboard.getKey(e);
         const letter = this.keyboard.returnKey();
-
+    
         if (this.keyboard.checkIfClicked(letter)) return;
-
+    
         this.getResult(letter, word);
-
+    
         if (this.checkWin(word)) {
             const win = ResultBoard.checkResult(this);
-
+    
             if (win) {
                 this.correctSound.play();
                 this.incrementScore(); // Increment score after winning a round
-                ResultBoard.addBoard(win, word, this.score);
-                this.resetWord();      // Continue to the next word without resetting the score
+                ResultBoard.addBoard(win, word, this.score);  // No direct reset here, wait for "Next Word"
             } else if (win === false) {
                 this.wrongSound.play();   // Play wrong word sound
                 ResultBoard.addBoard(false, word, this.score);
                 this.endGame();           // Player loses, end the game
             }
         }
-    }
+    }    
 
     getResult(letter, word) {
         if (word.includes(letter)) {
