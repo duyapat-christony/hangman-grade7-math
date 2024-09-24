@@ -38,6 +38,7 @@ h1 {
 	align-items: center;
 	padding: 5% 10%;
 	font-size: 2rem;
+	margin-left: 30px; /* Center the container */
 }
 
 #category {
