@@ -28,6 +28,7 @@ h1 {
 
 #hangman img {
 	width: 100%;
+	padding-left: 28px;
 	max-width: 305px;
 	display: block;
 }
@@ -38,7 +39,7 @@ h1 {
 	align-items: center;
 	padding: 5% 10%;
 	font-size: 2rem;
-	margin-left: 30px; /* Center the container */
+	margin-left: 28px; /* Center the container */
 }
 
 #category {
