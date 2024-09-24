@@ -7,7 +7,7 @@
 body {
 	font-size: 10px;
 	font-family: Tahoma, Helvetica, sans-serif;
-	height: 400px;
+	height: 350px;
 	width: 100%;
 	display: flex;
 	flex-wrap: wrap;
@@ -31,6 +31,7 @@ h1 {
 	padding-left: 28px;
 	max-width: 305px;
 	display: block;
+	margin: auto;
 }
 
 #word {
@@ -62,7 +63,7 @@ h1 {
 	align-items: center;
 	justify-content: center;
 	text-align: center;
-	width: 15%;
+	width: 11%;
 	line-height: 150%;
 	font-size: 1.2rem;
 	margin: 5px;
@@ -225,6 +226,10 @@ a {
 @media (min-width: 476px) {
 	#resultBoard h2 {
 		font-size: 1.8rem;
+	}
+
+	#hangman img {
+		width: 90%;
 	}
 }
 
