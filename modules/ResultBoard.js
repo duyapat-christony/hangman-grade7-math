@@ -17,7 +17,7 @@ export class ResultBoard {
         };
 
         if (win) {
-            text.textContent = `👏The word is ${word.toUpperCase()}!✅`;
+            text.textContent = `The word is ${word.toUpperCase()}!✅`;
             button.textContent = "Next Word";
             button.addEventListener('click', () => {
                 board.classList.remove('active');
