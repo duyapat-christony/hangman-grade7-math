@@ -338,35 +338,68 @@ p {
 }
 
 #playButton {
-  width: 200px;
-  background-color: #4caf50; /* Green background */
-  color: white; /* White text */
-  padding: 15px 32px; /* Padding for the button */
-  text-align: center; /* Center the text */
-  text-decoration: none; /* Remove underline */
-  display: inline-block; /* Inline-block display */
-  font-size: 1.9rem; /* Increase the font size */
-  margin: 20px auto; /* Add some margin around the button */
-  cursor: pointer; /* Pointer cursor on hover */
-  border-radius: 50px; /* Rounded corners */
-  border: none; /* Remove the border */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Shadow for depth */
-  transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transition */
-
-  /* Centering using absolute positioning */
   position: absolute;
-  top: 40%; /* Center vertically */
+  top: 50%; /* Center vertically */
   left: 50%; /* Center horizontally */
-  transform: translate(-50%, -50%); /* Adjust position to truly center */
-  scrollbar-width: none;
+  transform: translate(
+    -50%,
+    -50%
+  ); /* Adjust the position back by half its width and height */
+  cursor: pointer;
+  text-decoration: none !important;
+  outline: none !important;
+  font-family: "Carter One", sans-serif;
+  font-size: 40px;
+  line-height: 1.5em;
+  letter-spacing: 0.1em;
+  text-shadow: 2px 2px 1px #0066a2, -2px 2px 1px #0066a2, 2px -2px 1px #0066a2,
+    -2px -2px 1px #0066a2, 0px 2px 1px #0066a2, 0px -2px 1px #0066a2,
+    0px 4px 1px #004a87, 2px 4px 1px #004a87, -2px 4px 1px #004a87;
+  border: none;
+  margin: 15px auto;
+  background: repeating-linear-gradient(
+    45deg,
+    #3ebbf7,
+    #3ebbf7 5px,
+    #45b1f4 5px,
+    #45b1f4 10px
+  );
+  border-bottom: 3px solid rgba(16, 91, 146, 0.5);
+  border-top: 3px solid rgba(255, 255, 255, 0.3);
+  color: #fff !important;
+  border-radius: 8px;
+  padding: 8px 15px 10px;
+  box-shadow: 0 6px 0 #266b91, 0 8px 1px 1px rgba(0, 0, 0, 0.3),
+    0 10px 0 5px #12517d, 0 12px 0 5px #1a6b9a, 0 15px 0 5px #0c405e,
+    0 15px 1px 6px rgba(0, 0, 0, 0.3);
 }
 
 #playButton:hover {
-  background-color: #45a049; /* Darker green on hover */
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* Increase shadow on hover */
+  top: 50%; /* Maintain the center position */
+  transform: translate(-50%, -50%) translateY(2px); /* Slightly adjust on hover */
+  box-shadow: 0 4px 0 #266b91, 0 6px 1px 1px rgba(0, 0, 0, 0.3),
+    0 8px 0 5px #12517d, 0 10px 0 5px #1a6b9a, 0 13px 0 5px #0c405e,
+    0 13px 1px 6px rgba(0, 0, 0, 0.3);
 }
 
-#playButton:active {
-  background-color: #3e8e41; /* Even darker green on click */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Lower shadow on click */
+#playButton::before {
+  content: "";
+  height: 10%;
+  position: absolute;
+  width: 40%;
+  background: #fff;
+  right: 13%;
+  top: -3%;
+  border-radius: 99px;
+}
+
+#playButton::after {
+  content: "";
+  height: 10%;
+  position: absolute;
+  width: 5%;
+  background: #fff;
+  right: 5%;
+  top: -3%;
+  border-radius: 99px;
 }
