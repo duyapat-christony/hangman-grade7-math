@@ -339,7 +339,7 @@ p {
 
 #playButton {
   position: absolute;
-  top: 50%; /* Center vertically */
+  top: 40%; /* Center vertically */
   left: 50%; /* Center horizontally */
   transform: translate(
     -50%,
@@ -375,7 +375,7 @@ p {
 }
 
 #playButton:hover {
-  top: 50%; /* Maintain the center position */
+  top: 40%; /* Maintain the center position */
   transform: translate(-50%, -50%) translateY(2px); /* Slightly adjust on hover */
   box-shadow: 0 4px 0 #266b91, 0 6px 1px 1px rgba(0, 0, 0, 0.3),
     0 8px 0 5px #12517d, 0 10px 0 5px #1a6b9a, 0 13px 0 5px #0c405e,
