@@ -1,372 +1,363 @@
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-	overflow-x: hidden;
-	font-size: 10px;
-	font-family: Tahoma, Helvetica, sans-serif;
-	height: 350px;
-	width: 100%;
-	display: flex;
-	flex-wrap: wrap;
+  overflow-x: hidden;
+  font-size: 10px;
+  font-family: Tahoma, Helvetica, sans-serif;
+  height: 350px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 h1 {
-	width: 100%;
-	margin: 0;
-	padding: 0;
-	text-align: center;
-	font-size: 1.9rem;
-	letter-spacing: 8px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-size: 1.9rem;
+  letter-spacing: 8px;
 }
 
 #hangman {
-	width: 100%;
+  width: 100%;
 }
 
 #hangman img {
-	width: 100%;
-	padding-left: 28px;
-	max-width: 305px;
-	display: block;
-	margin: auto;
+  width: 100%;
+  padding-left: 28px;
+  max-width: 305px;
+  display: block;
+  margin: auto;
 }
 
 #word {
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
-	padding: 5% 10%;
-	font-size: 2rem;
-	margin-left: 28px; /* Center the container */
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 5% 10%;
+  font-size: 2rem;
+  margin-left: 28px; /* Center the container */
 }
 
 #category {
-	width: 100%;
-	margin: 8% auto;
-	font-size: 1.5rem;
-	text-align: center;
+  width: 100%;
+  margin: 8% auto;
+  font-size: 1.5rem;
+  text-align: center;
 }
 
 #keyboard {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	width: 100%;
-	margin: 5% 2%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  margin: 5% 2%;
 }
 
 .letter {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	text-align: center;
-	width: 11%;
-	line-height: 150%;
-	font-size: 1.2rem;
-	margin: 5px;
-	background-color: rgb(187, 187, 187);
-	box-shadow: 0px 1px 5px 0px #000;
-	border-bottom: 1px solid #4b4b4b;
-	border-right: 1px solid #4b4b4b;
-	border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 11%;
+  line-height: 150%;
+  font-size: 1.2rem;
+  margin: 5px;
+  background-color: rgb(187, 187, 187);
+  box-shadow: 0px 1px 5px 0px #000;
+  border-bottom: 1px solid #4b4b4b;
+  border-right: 1px solid #4b4b4b;
+  border-radius: 10px;
 }
 
 .letter:hover {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 .letter.clicked {
-	box-shadow: inset 2px 2px 10px 0px #000;
-	border-bottom: 1px solid #4b4b4b;
-	border-right: 1px solid #4b4b4b;
-	background-color: rgb(153, 153, 153);
+  box-shadow: inset 2px 2px 10px 0px #000;
+  border-bottom: 1px solid #4b4b4b;
+  border-right: 1px solid #4b4b4b;
+  background-color: rgb(153, 153, 153);
 }
 
 .letter.clicked {
-	cursor: auto
+  cursor: auto;
 }
 
 #resultBoard {
-	position: fixed;
-	top: -100%;
-	left: 50%;
-	transform: translateX(-50%);
-	max-width: 650px;
-	width: 90%;
-	height: 15rem;
-	background-color: rgb(187, 187, 187);
-	box-shadow: 0 0 5px 3px black, 0 0 0 6px white, 0 0 5px 9px black;
-	transition: .8s cubic-bezier(0.11, 0.01, 0.57, 2.08);
+  position: fixed;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 650px;
+  width: 90%;
+  height: 15rem;
+  background-color: rgb(187, 187, 187);
+  box-shadow: 0 0 5px 3px black, 0 0 0 6px white, 0 0 5px 9px black;
+  transition: 0.8s cubic-bezier(0.11, 0.01, 0.57, 2.08);
 }
 
 #resultBoard.active {
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 #resultBoard h2 {
-	position: absolute;
-	top: 45%;
-	transform: translateY(-50%);
-    font-size: 1.6rem;
-	width: 100%;
-	text-align: center;
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
+  font-size: 1.6rem;
+  width: 100%;
+  text-align: center;
 }
 
 #resultBoard button {
-	display: block;
-	background-color: #4CAF50;
-	width: max-content;
-	color: white;
-	position: absolute;
-	top: 55%;
-	left: 50%;
-	transform: translate(-50%, 50%);
-	font-size: 1.5rem;
-	padding: 5px 25px;
-	border-radius: 50px;        /* Rounded corners */
-    border: none;               /* Remove the border */
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Shadow for depth */
-    transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transition */
+  display: block;
+  background-color: #4caf50;
+  width: max-content;
+  color: white;
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  font-size: 1.5rem;
+  padding: 5px 25px;
+  border-radius: 50px; /* Rounded corners */
+  border: none; /* Remove the border */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+  transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transition */
 }
 
 #resultBoard button:hover {
-    background-color: #45a049;  /* Darker green on hover */
-	box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* Increase shadow on hover */
+  background-color: #45a049; /* Darker green on hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* Increase shadow on hover */
 }
 
 #resultBoard button:active {
-    background-color: #3e8e41;  /* Even darker green on click */
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Lower shadow on click */
+  background-color: #3e8e41; /* Even darker green on click */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Lower shadow on click */
 }
 
 a {
-	text-decoration: none;
-	color: black;
+  text-decoration: none;
+  color: black;
 }
 
 @media (orientation: landscape) {
+  #hangman,
+  #word {
+    width: 50%;
+  }
 
-	#hangman,
-	#word {
-		width: 50%;
-	}
+  #word {
+    padding: 5% 5%;
+  }
 
-	#word {
-		padding: 5% 5%;
-	}
+  #hangman img {
+    width: 70%;
+    margin: 0 0 0 auto;
+  }
 
-	#hangman img {
-		width: 70%;
-		margin: 0 0 0 auto;
-	}
+  #category {
+    margin: 0 auto;
+  }
 
-	#category {
-		margin: 0 auto;
-	}
+  #keyboard {
+    width: 90%;
+    margin: 5% auto;
+  }
 
-	#keyboard {
-		width: 90%;
-		margin: 5% auto;
-	}
-
-	.letter {
-		width: 5%;
-		line-height: 200%;
-		margin: 5px;
-	}
-
-
+  .letter {
+    width: 5%;
+    line-height: 200%;
+    margin: 5px;
+  }
 }
 
 @media (min-width: 375px) {
-	h1 {
-		font-size: 2.2rem;
-		padding: 0;
-	}
+  h1 {
+    font-size: 2.2rem;
+    padding: 0;
+  }
 
-	#hangman img {
-		margin: 0 auto;
-	}
+  #hangman img {
+    margin: 0 auto;
+  }
 
-	#word {
-		padding: 7% 13%;
-		font-size: 2rem;
-		/* padding: 5% 15%; */
-	}
+  #word {
+    padding: 7% 13%;
+    font-size: 2rem;
+    /* padding: 5% 15%; */
+  }
 
-	.letter {
-		width: 10%;
-		line-height: 180%;
-		font-size: 1.2rem;
-		margin: 5px;
-	}
+  .letter {
+    width: 10%;
+    line-height: 180%;
+    font-size: 1.2rem;
+    margin: 5px;
+  }
 
-	#scoreText {
-		font-size: 1rem;
-	}
+  #scoreText {
+    font-size: 1rem;
+  }
 
-	#resultBoard h2 {
-		font-size: 1.6rem;
-	}
-
-
+  #resultBoard h2 {
+    font-size: 1.6rem;
+  }
 }
 
 @media (min-width: 460px) {
-	#resultBoard h2 {
-		font-size: 1.6rem;
-	}
+  #resultBoard h2 {
+    font-size: 1.6rem;
+  }
 }
 
 @media (min-width: 476px) {
-	#resultBoard h2 {
-		font-size: 1.8rem;
-	}
+  #resultBoard h2 {
+    font-size: 1.8rem;
+  }
 
-	#hangman img {
-		width: 90%;
-	}
+  #hangman img {
+    width: 90%;
+  }
 }
 
 @media (min-width: 768px) {
-	h1 {
-		text-align: center;
-		font-size: 2.3rem;
-		padding: 0;
-	}
+  h1 {
+    text-align: center;
+    font-size: 2.3rem;
+    padding: 0;
+  }
 
-	#word {
-		padding: 5% 30%;
-		font-size: 2rem;
-	}
+  #word {
+    padding: 5% 30%;
+    font-size: 2rem;
+  }
 
-	#category {
-		width: 100%;
-		font-size: 1.8rem;
-	}
+  #category {
+    width: 100%;
+    font-size: 1.8rem;
+  }
 
-	.letter {
-		width: 6%;
-		line-height: 200%;
-		font-size: 1.8rem;
-	}
+  .letter {
+    width: 6%;
+    line-height: 200%;
+    font-size: 1.8rem;
+  }
 
-	#resultBoard {
-		box-shadow: 0 0 5px 5px black, 0 0 0 10px white, 0 0 5px 15px black;
-	}
+  #resultBoard {
+    box-shadow: 0 0 5px 5px black, 0 0 0 10px white, 0 0 5px 15px black;
+  }
 
-	#resultBoard h2 {
-		font-size: 2.5rem;
-	}
+  #resultBoard h2 {
+    font-size: 2.5rem;
+  }
 
-	#resultBoard button {
-		font-size: 1.5rem;
-	}
-
+  #resultBoard button {
+    font-size: 1.5rem;
+  }
 }
 
 @media (min-width: 1024px) {
+  #hangman,
+  #word {
+    width: 50%;
+  }
 
-	#hangman,
-	#word {
-		width: 50%;
-	}
+  #word {
+    padding: 5% 15%;
+  }
 
-	#word {
-		padding: 5% 15%;
-	}
+  #category {
+    margin: 0;
+  }
 
-	#category {
-		margin: 0;
-	}
+  .letter {
+    width: 10%;
+    line-height: 150%;
+    font-size: 1.8rem;
+  }
 
-	.letter {
+  #keyboard {
+    width: 70%;
+    margin: 5% auto;
+  }
 
-		width: 10%;
-		line-height: 150%;
-		font-size: 1.8rem;
-	}
-
-	#keyboard {
-		width: 70%;
-		margin: 5% auto;
-	}
-
-	#resultBoard {
-		width: 70%;
-	}
-
+  #resultBoard {
+    width: 70%;
+  }
 }
 
 @media (min-width: 1400px) {
-	.letter {
-		width: 10%;
-		line-height: 150%;
-		font-size: 1.8rem;
-	}
+  .letter {
+    width: 10%;
+    line-height: 150%;
+    font-size: 1.8rem;
+  }
 }
 
 /* My Customizations */
 p {
-	width: 100%;
-	margin: 0;
-	padding: 0;
-	text-align: center;
-	font-size: 1.5rem;
-	letter-spacing: 4px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-size: 1.5rem;
+  letter-spacing: 4px;
 }
 
 #scoreDiv {
-	width: 100%;
-	margin-top: 0;
-    font-size: 1.3rem;
-    text-align: center;
+  width: 100%;
+  margin-top: 0;
+  font-size: 1.3rem;
+  text-align: center;
 }
 
 #scoreText {
-	position: absolute;
-	top: 5%;
-	left: 50%;
-	transform: translate(-50%, 50%);
-	padding: 5px;
-    font-size: 1.5rem;
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  padding: 5px;
+  font-size: 1.5rem;
 }
 
 #playButton {
-	width: 200px;
-    background-color: #4CAF50; /* Green background */
-    color: white;              /* White text */
-    padding: 15px 32px;         /* Padding for the button */
-    text-align: center;         /* Center the text */
-    text-decoration: none;      /* Remove underline */
-    display: inline-block;      /* Inline-block display */
-    font-size: 1.9rem;            /* Increase the font size */
-    margin: 20px auto;          /* Add some margin around the button */
-    cursor: pointer;            /* Pointer cursor on hover */
-    border-radius: 50px;        /* Rounded corners */
-    border: none;               /* Remove the border */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Shadow for depth */
-    transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transition */
+  width: 200px;
+  background-color: #4caf50; /* Green background */
+  color: white; /* White text */
+  padding: 15px 32px; /* Padding for the button */
+  text-align: center; /* Center the text */
+  text-decoration: none; /* Remove underline */
+  display: inline-block; /* Inline-block display */
+  font-size: 1.9rem; /* Increase the font size */
+  margin: 20px auto; /* Add some margin around the button */
+  cursor: pointer; /* Pointer cursor on hover */
+  border-radius: 50px; /* Rounded corners */
+  border: none; /* Remove the border */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+  transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transition */
 
-	/* Centering using absolute positioning */
-    position: absolute;
-    top: 10%;                   /* Center vertically */
-    left: 50%;                  /* Center horizontally */
-    transform: translate(-50%, -50%); /* Adjust position to truly center */
+  /* Centering using absolute positioning */
+  position: absolute;
+  top: 10%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust position to truly center */
 }
 
 #playButton:hover {
-    background-color: #45a049;  /* Darker green on hover */
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* Increase shadow on hover */
+  background-color: #45a049; /* Darker green on hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3); /* Increase shadow on hover */
 }
 
 #playButton:active {
-    background-color: #3e8e41;  /* Even darker green on click */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Lower shadow on click */
+  background-color: #3e8e41; /* Even darker green on click */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Lower shadow on click */
 }
