@@ -17,7 +17,6 @@ body {
   overflow-x: hidden;
   font-size: 10px;
   font-family: Tahoma, Helvetica, sans-serif;
-  height: 350px;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
