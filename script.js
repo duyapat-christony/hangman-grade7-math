@@ -33,6 +33,14 @@ class Game {
       playButton.remove(); // Remove the button after clicking
       this.startGameSetup(); // Start the game setup
 
+      // Make hidden elements visible
+      document.querySelector("#hangman").style.visibility = "visible";
+      this.keyboardDiv.style.visibility = "visible";
+      this.wordDiv.style.visibility = "visible";
+      document.querySelector("#category").style.visibility = "visible";
+      document.querySelector("#resultBoard").style.visibility = "visible";
+      this.scoreDiv.style.visibility = "visible";
+
       // Notify the parent window to expand the iframe height
       window.parent.postMessage("expandIframe", "*");
     });

@@ -4,6 +4,15 @@
   box-sizing: border-box;
 }
 
+#hangman,
+#word,
+#category,
+#keyboard,
+#resultBoard,
+#scoreDiv {
+  visibility: hidden; /* Make these elements invisible initially */
+}
+
 body {
   overflow-x: hidden;
   font-size: 10px;
@@ -347,9 +356,10 @@ p {
 
   /* Centering using absolute positioning */
   position: absolute;
-  top: 10%; /* Center vertically */
+  top: 40%; /* Center vertically */
   left: 50%; /* Center horizontally */
   transform: translate(-50%, -50%); /* Adjust position to truly center */
+  scrollbar-width: none;
 }
 
 #playButton:hover {
